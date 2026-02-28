@@ -1,0 +1,15 @@
+import os 
+from dotenv import load_dotenv
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+BLOXLINK_API_KEY = os.getenv("BLOXLINK_API_KEY")
+
+GUILD_ID = "1440123598336688140"
+LOG_CHANNEL_ID = 1440123702707617832 
+
+ALLOWED_ROLE_IDS =[
+    111111111111111111,  
+    222222222222222222, 
+]
+
