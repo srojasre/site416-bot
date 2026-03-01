@@ -61,11 +61,11 @@ class ModerationCog(commands.Cog):
     @app_commands.choices(
         platform=[
             app_commands.Choice(name="Discord", value="Discord"),
-            app_commands.Choice(name="In-game", value="In-game"),
+            app_commands.Choice(name="In-Game", value="In-Game"),
             app_commands.Choice(name="Both", value="Both")
         ],
         punishment_type=[
-            app_commands.Choice(name="Warning", value="Warning"),
+            app_commands.Choice(name="Warn", value="Warn"),
             app_commands.Choice(name="Ban", value="Ban"),
             app_commands.Choice(name="Blacklist", value="Blacklist")
         ]
@@ -130,7 +130,7 @@ class ModerationCog(commands.Cog):
             tag_names_to_find = [punishment_type.value]
             
             if platform.value == "Both":
-                tag_names_to_find.extend(["Discord", "In-game"])
+                tag_names_to_find.extend(["Discord", "In-Game"])
             else:
                 tag_names_to_find.append(platform.value)
             
@@ -155,6 +155,7 @@ class ModerationCog(commands.Cog):
                     f"**Moderator:** {interaction.user.mention}\n"
                     f"**Offender:** `{username}`\n"
                     f"**Category:** {punishment_type.value} | **Platform:** {platform.value}\n"
+                    f"**Reason:** {reason}\n"
                     f"**Reference:** <#{LOG_CHANNEL_ID}>"
                 )
                 await admin_channel.send(admin_msg)
